@@ -9,5 +9,5 @@ for (let i = 0; i < arr.length - 1; i++) {
       swap = true;
     }
   }
-  if (!swap) return;
+  if (!swap) break;
 }
