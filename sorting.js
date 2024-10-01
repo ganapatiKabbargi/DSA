@@ -11,3 +11,16 @@ for (let i = 0; i < arr.length - 1; i++) {
   }
   if (!swap) break;
 }
+
+// Selection Sort
+for (let i = 0; i < arr.length; i++) {
+  let smallest = i;
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[smallest] > arr[j]) {
+      smallest = j;
+    }
+  }
+  let temp = arr[smallest];
+  arr[smallest] = arr[i];
+  arr[i] = temp;
+}
