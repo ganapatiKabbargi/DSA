@@ -35,3 +35,41 @@ for (let i = 1; i < arr.length; i++) {
   }
   arr[j + 1] = current;
 }
+
+//merge sort
+function mergeSort(arr) {
+  function divide(arr, si, ei) {
+    if (si >= ei) {
+      return;
+    }
+    let mid = Math.floor((si + ei) / 2);
+    divide(arr, si, mid);
+    divide(arr, mid + 1, ei);
+    conquer(arr, si, mid, ei);
+  }
+  function conquer(arr, si, mid, ei) {
+    let mergedArr = [];
+    let idx1 = si;
+    let idx2 = mid + 1;
+    let x = 0;
+
+    while (idx1 <= mid && idx2 <= ei) {
+      if (arr[idx1] <= arr[idx2]) {
+        mergedArr[x++] = arr[idx1++];
+      } else {
+        mergedArr[x++] = arr[idx2++];
+      }
+    }
+    while (idx1 <= mid) {
+      mergedArr[x++] = arr[idx1++];
+    }
+    while (idx2 <= ei) {
+      mergedArr[x++] = arr[idx2++];
+    }
+
+    for (let i = 0, j = si; i < mergedArr.length; i++, j++) {
+      arr[j] = mergedArr[i];
+    }
+  }
+  return arr;
+}
