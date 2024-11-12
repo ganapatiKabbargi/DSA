@@ -16,3 +16,16 @@ function rotateArr(arr, k) {
 
   return arr;
 }
+
+// maxsum subarray (Kadanes Algorithm)
+function maxSumSubArray(arr) {
+  let maxSum = -Infinity;
+  let currentSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    currentSum = currentSum + arr[i];
+    maxSum = Math.max(maxSum, currentSum);
+    currentSum = Math.max(currentSum, 0);
+  }
+  return maxSum;
+}
